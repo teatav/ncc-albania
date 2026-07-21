@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NCC Albania | National Competence Centre | EuroCC 3</title>
+<meta name="description" content="NCC Albania, Qendra Kombëtare e Kompetencës për High-Performance Computing (HPC), HPDA dhe AI në kuadër të EuroCC 3 / EuroHPC. National Competence Centre Albania.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#10224A;--navy-2:#0B1A38;--navy-3:#182F5E;--gold:#E6A93B;--gold-2:#f2c15f;
+  --star:#F5C518;--ink:#1c2536;--muted:#5a6478;--line:#e4e8ef;--bg:#ffffff;--bg-soft:#f5f7fb;
+  --radius:14px;--shadow:0 10px 30px rgba(16,34,74,.10);--shadow-sm:0 4px 14px rgba(16,34,74,.08);--maxw:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+svg{display:block}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+section{padding:84px 0}
+h1,h2,h3,h4,h5{line-height:1.2;margin:0 0 .5em;font-weight:800;letter-spacing:-.01em}
+h2{font-size:clamp(1.7rem,3vw,2.4rem);color:var(--navy)}
+.lead{font-size:1.12rem;color:var(--muted)}
+.eyebrow{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.center{text-align:center}
+.center .lead{max-width:760px;margin:0 auto}
+
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.98rem;padding:13px 24px;border-radius:999px;border:1.6px solid transparent;cursor:pointer;transition:.2s;white-space:nowrap}
+.btn-gold{background:var(--gold);color:#20160a}
+.btn-gold:hover{background:var(--gold-2);transform:translateY(-2px)}
+.btn-ghost{border-color:rgba(255,255,255,.4);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.12)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy-3);transform:translateY(-2px)}
+
+header{position:sticky;top:0;z-index:50;background:rgba(11,26,56,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.10)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:82px}
+.brand{display:flex;align-items:center;gap:16px}
+.brand img{height:40px}
+.brand .sep{width:1px;height:36px;background:rgba(255,255,255,.25)}
+.brand .name{color:#fff;font-weight:800;font-size:2.1rem;letter-spacing:.01em;line-height:1}
+.brand .name span{color:var(--gold)}
+.menu{display:flex;align-items:center;gap:28px}
+.menu a{color:#dfe5f0;font-weight:500;font-size:.95rem;transition:.15s}
+.menu a:hover{color:#fff}
+.nav-right{display:flex;align-items:center;gap:16px}
+.lang{display:flex;gap:8px}
+.lang button{width:32px;height:32px;border-radius:50%;padding:0;border:2px solid transparent;overflow:hidden;cursor:pointer;background:transparent;opacity:.55;transition:.15s;display:flex}
+.lang button img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.lang button:hover{opacity:.85}
+.lang button.active{opacity:1;border-color:var(--gold)}
+.burger{display:none;background:transparent;border:0;cursor:pointer;padding:6px}
+.burger span{display:block;width:24px;height:2px;background:#fff;margin:5px 0;transition:.2s}
+
+.hero{position:relative;background:linear-gradient(135deg,#0B1A38 0%,#10224A 55%,#182F5E 100%);color:#fff;overflow:hidden;padding:96px 0 90px}
+.hero::after{content:"";position:absolute;inset:0;background-image:url('assets/map-europe.png');background-repeat:no-repeat;background-position:right -60px center;background-size:contain;opacity:.16;pointer-events:none}
+.hero .container{position:relative;z-index:2;max-width:820px}
+.hero .flag{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);padding:7px 16px;border-radius:999px;font-size:.85rem;font-weight:600;margin-bottom:22px}
+.hero h1{font-size:clamp(2.2rem,5vw,3.6rem);color:#fff;margin-bottom:.35em}
+.hero h1 .hl{color:var(--gold)}
+.hero p{font-size:1.2rem;color:#cdd6e8;max-width:640px;margin-bottom:32px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.stats{display:flex;gap:40px;margin-top:52px;flex-wrap:wrap}
+.stat b{display:block;font-size:2rem;color:var(--gold);font-weight:800;line-height:1}
+.stat span{font-size:.9rem;color:#b8c2d8}
+
+.partners-strip{background:var(--navy-2);padding:26px 0;border-top:1px solid rgba(255,255,255,.08)}
+.partners-strip .container{display:flex;align-items:center;justify-content:center;gap:46px;flex-wrap:wrap}
+.partners-strip img{height:40px;filter:brightness(0) invert(1);opacity:.9}
+.partners-strip .eu{height:46px;filter:none;background:#fff;padding:4px 8px;border-radius:6px}
+.partners-strip small{color:#8b96ad;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;width:100%;text-align:center;margin-bottom:6px}
+
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.about-card{background:linear-gradient(135deg,#10224A,#182F5E);color:#fff;border-radius:20px;padding:38px;box-shadow:var(--shadow)}
+.about-card h3{color:#fff;font-size:1.15rem}
+.about-card ul{list-style:none;padding:0;margin:14px 0 0}
+.about-card li{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.12);display:flex;gap:12px;font-size:.98rem;color:#dbe2f0}
+.about-card li:last-child{border-bottom:0}
+.about-card li b{color:var(--gold);font-weight:700}
+.chk{color:var(--gold);flex:none;font-weight:800}
+.consortium{margin-top:64px}
+.org{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:26px}
+.org-card{border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow-sm)}
+.org-card .role{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.org-card h3{color:var(--navy);margin:6px 0 4px;font-size:1.25rem}
+.org-card p{color:var(--muted);font-size:.95rem;margin:8px 0 0}
+
+#services{background:var(--bg-soft)}
+.level-tabs{display:flex;gap:12px;justify-content:center;margin:8px 0 40px;flex-wrap:wrap}
+.level-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:999px;font-weight:700;font-size:.9rem}
+.lvl1{background:#e8f0ff;color:#1e50c8}
+.lvl2{background:#fff2d8;color:#a9761a}
+.lvl3{background:#e3f6ec;color:#1a7a4a}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;transition:.2s;box-shadow:var(--shadow-sm)}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#cdd6e8}
+.card .ico{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#10224A,#182F5E);color:var(--gold);margin-bottom:16px}
+.card .ico svg{width:26px;height:26px}
+.card h3{font-size:1.12rem;color:var(--navy);margin-bottom:8px}
+.card p{color:var(--muted);font-size:.95rem;margin:0}
+.card .tag{display:inline-block;margin-top:14px;font-size:.72rem;font-weight:700;letter-spacing:.06em;padding:4px 10px;border-radius:6px}
+.tag.t1{background:#e8f0ff;color:#1e50c8}
+.tag.t2{background:#fff2d8;color:#a9761a}
+.tag.t12{background:#eef0f4;color:#55607a}
+.tag.t3{background:#e3f6ec;color:#1a7a4a}
+
+.aud{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.aud-item{text-align:center;padding:30px 18px;border-radius:var(--radius);background:var(--bg-soft);border:1px solid var(--line)}
+.aud-ico{width:56px;height:56px;margin:0 auto;border-radius:14px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#10224A,#182F5E);color:var(--gold)}
+.aud-ico svg{width:28px;height:28px}
+.aud-item h4{margin:14px 0 6px;color:var(--navy);font-size:1.05rem}
+.aud-item p{margin:0;font-size:.88rem;color:var(--muted)}
+
+#how{background:linear-gradient(135deg,#0B1A38,#10224A);color:#fff}
+#how h2{color:#fff}
+#how .lead{color:#c3cde0}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:44px}
+.step{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:26px}
+.step .n{width:40px;height:40px;border-radius:50%;background:var(--gold);color:#20160a;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.step h4{color:#fff;font-size:1.08rem;margin-bottom:8px}
+.step p{color:#c2cbdd;font-size:.9rem;margin:0}
+
+#contact{background:var(--bg-soft)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.contact-info .row{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line)}
+.contact-info .ico{color:var(--gold);flex:none;margin-top:2px}
+.contact-info .ico svg{width:22px;height:22px}
+.contact-info b{color:var(--navy)}
+.contact-info a{color:var(--muted)}
+form{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow-sm)}
+label{display:block;font-weight:600;font-size:.85rem;color:var(--navy);margin:0 0 6px}
+input,textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-family:inherit;font-size:.95rem;margin-bottom:16px;background:var(--bg-soft)}
+input:focus,textarea:focus{outline:2px solid var(--gold);border-color:transparent;background:#fff}
+.form-note{font-size:.78rem;color:var(--muted);margin:14px 0 0;line-height:1.55}
+.form-note a{color:var(--navy);font-weight:600}
+.social a{display:inline-flex;width:42px;height:42px;border:1px solid rgba(16,34,74,.18);border-radius:50%;align-items:center;justify-content:center;margin-right:8px;color:var(--navy);transition:.15s}
+.social a:hover{background:var(--gold);color:#20160a;border-color:var(--gold)}
+.social a svg{width:19px;height:19px}
+
+footer{background:var(--navy-2);color:#c2cbdd}
+.foot-top{padding:56px 0 30px;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+.foot-brand img{height:40px;margin-bottom:16px}
+.foot-brand p{font-size:.9rem;color:#98a3ba;max-width:320px}
+footer h5{color:#fff;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;margin:0 0 14px}
+footer ul{list-style:none;padding:0;margin:0}
+footer li{margin-bottom:10px}
+footer li a{color:#b3bdd2;font-size:.92rem}
+footer li a:hover{color:var(--gold)}
+.disclaimer{border-top:1px solid rgba(255,255,255,.12);padding:26px 0;display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.disclaimer img{height:40px}
+.disclaimer .eu{background:#fff;padding:5px 9px;border-radius:6px;height:48px}
+.disclaimer p{font-size:.74rem;color:#8b96ad;margin:0;line-height:1.55;flex:1;min-width:280px}
+.copyright{border-top:1px solid rgba(255,255,255,.12);padding:18px 0;text-align:center;font-size:.82rem;color:#7b869d}
+.copyright a{color:#b3bdd2;margin-left:8px}
+.copyright a:hover{color:var(--gold)}
+
+html[lang="en"] [data-sq]{display:none}
+html[lang="en"] [data-en]{display:revert}
+
+@media(max-width:900px){
+  .menu,.nav-right .btn{display:none}
+  .burger{display:block}
+  .about-grid,.contact-grid,.org{grid-template-columns:1fr;gap:32px}
+  .cards,.aud,.steps{grid-template-columns:1fr 1fr}
+  .foot-top{grid-template-columns:1fr}
+  .menu.open{display:flex;position:absolute;top:82px;left:0;right:0;flex-direction:column;background:var(--navy-2);padding:20px 24px;gap:16px;border-bottom:1px solid rgba(255,255,255,.1)}
+}
+@media(max-width:560px){
+  .cards,.aud,.steps{grid-template-columns:1fr}
+  section{padding:60px 0}
+  .stats{gap:26px}
+  .brand .name{font-size:1.7rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="container nav">
+    <a href="#home" class="brand">
+      <img src="assets/hpc-in-europe-white.png" alt="HPC in Europe">
+      <span class="sep"></span>
+      <span class="name">NCC <span>Albania</span></span>
+    </a>
+    <nav class="menu" id="menu">
+      <a href="#about"><span data-sq>Rreth nesh</span><span data-en>About</span></a>
+      <a href="#services"><span data-sq>Shërbimet</span><span data-en>Services</span></a>
+      <a href="#audience"><span data-sq>Target Grupe</span><span data-en>Target Groups</span></a>
+      <a href="#how"><span data-sq>Si funksionon</span><span data-en>How it works</span></a>
+      <a href="#contact"><span data-sq>Kontakt</span><span data-en>Contact</span></a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language">
+        <button data-lang="sq" class="active" aria-label="Shqip"><img src="https://flagcdn.com/w40/al.png" alt="Shqip"></button>
+        <button data-lang="en" aria-label="English"><img src="https://flagcdn.com/w40/gb.png" alt="English"></button>
+      </div>
+      <a href="#contact" class="btn btn-gold"><span data-sq>Na kontaktoni</span><span data-en>Get in touch</span></a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="flag"><span data-sq>Qendra Kombëtare e Kompetencës në kuadër të EuroCC 3</span><span data-en>National Competence Centre within EuroCC 3</span></div>
+    <h1 data-sq>Fuqia e <span class="hl">superkompjuterave europianë</span>, në shërbim të Shqipërisë</h1>
+    <h1 data-en>Europe's <span class="hl">supercomputing power</span>, at the service of Albania</h1>
+    <p data-sq>NCC Albania është pika juaj kombëtare e kontaktit për High-Performance Computing (HPC), analizën e të dhënave në shkallë të gjerë (HPDA) dhe inteligjencën artificiale, duke lidhur bizneset, kërkuesit dhe institucionet publike me rrjetin europian EuroHPC.</p>
+    <p data-en>NCC Albania is your national point of contact for High-Performance Computing (HPC), High-Performance Data Analytics (HPDA) and Artificial Intelligence, connecting businesses, researchers and public institutions to the European EuroHPC network.</p>
+    <div class="hero-cta">
+      <a href="#services" class="btn btn-gold"><span data-sq>Shiko shërbimet</span><span data-en>Explore services</span></a>
+      <a href="#how" class="btn btn-ghost"><span data-sq>Si të përfitoni akses</span><span data-en>How to get access</span></a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>HPC / HPDA / AI</b><span data-sq>Teknologji e avancuar</span><span data-en>Advanced technologies</span></div>
+      <div class="stat"><b>3</b><span data-sq>Nivele shërbimesh</span><span data-en>Service levels</span></div>
+      <div class="stat"><b>36+</b><span data-sq>Vende në rrjetin EuroHPC</span><span data-en>Countries in EuroHPC</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARTNER STRIP ============ -->
+<div class="partners-strip">
+  <div class="container">
+    <small data-sq>Pjesë e rrjetit europian të Qendrave Kombëtare të Kompetencës</small>
+    <small data-en>Part of the European network of National Competence Centres</small>
+    <img src="assets/eurocc3-white.png" alt="EuroCC 3">
+    <img src="assets/hpc-in-europe-white.png" alt="HPC in Europe">
+    <img src="assets/eurohpc-ju.png" alt="EuroHPC JU">
+    <img class="eu" src="assets/eu-cofunded.jpg" alt="Co-funded by the European Union">
+  </div>
+</div>
+
+<!-- ============ ABOUT (+ consortium) ============ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <span class="eyebrow" data-sq>Rreth NCC Albania</span>
+        <span class="eyebrow" data-en>About NCC Albania</span>
+        <h2 data-sq>Ura midis Shqipërisë dhe superkompjuterave të Europës</h2>
+        <h2 data-en>The bridge between Albania and Europe's supercomputers</h2>
+        <p class="lead" data-sq>NCC Albania vepron si ndërmjetës i centralizuar midis aktorëve shqiptarë (ndërmarrje të vogla dhe të mesme, startup-e, kërkues dhe institucione publike) dhe rrjetit europian EuroHPC. Misioni ynë është zhvillimi i aftësive dhe ofrimi i aksesit në hardware të avancuar për big data, simulime dhe inteligjencë artificiale.</p>
+        <p class="lead" data-en>NCC Albania acts as a central intermediary between Albanian stakeholders (SMEs, start-ups, researchers and public institutions) and the European EuroHPC network. Our mission is skills development and providing access to advanced hardware for big data, simulation and artificial intelligence.</p>
+        <p data-sq style="color:var(--muted)">NCC Albania është ngritur në kuadër të projektit <b>EuroCC 3</b> (EuroHPC Joint Undertaking), pjesë e Work Package 3, dhe drejtohet nga <b>AKSHI</b> (Agjencia Kombëtare e Shoqërisë së Informacionit).</p>
+        <p data-en style="color:var(--muted)">NCC Albania is established within the <b>EuroCC 3</b> project (EuroHPC Joint Undertaking), as part of Work Package 3, and is led by <b>AKSHI</b> (National Agency for Information Society).</p>
+      </div>
+      <div class="about-card">
+        <h3 data-sq>Çfarë ju ofrojmë</h3>
+        <h3 data-en>What we offer</h3>
+        <ul>
+          <li><span class="chk">›</span><span data-sq><b>Akses</b> në superkompjuterat EuroHPC për kërkim dhe validim</span><span data-en><b>Access</b> to EuroHPC supercomputers for research and validation</span></li>
+          <li><span class="chk">›</span><span data-sq><b>Trajnime</b> dhe ngritje kapacitetesh në HPC, HPDA dhe AI</span><span data-en><b>Training</b> and capacity building in HPC, HPDA and AI</span></li>
+          <li><span class="chk">›</span><span data-sq><b>Konsulencë teknike</b> dhe zhvillim Proof-of-Concept</span><span data-en><b>Technical consulting</b> and Proof-of-Concept development</span></li>
+          <li><span class="chk">›</span><span data-sq><b>Mbështetje</b> për NVM, startup dhe institucione publike</span><span data-en><b>Support</b> for SMEs, start-ups and public institutions</span></li>
+          <li><span class="chk">›</span><span data-sq>Të gjitha shërbimet <b>pa pagesë</b> për përdoruesit</span><span data-en>All services <b>free of charge</b> for users</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="consortium">
+      <span class="eyebrow" data-sq>Konsorciumi dhe drejtimi</span><span class="eyebrow" data-en>Consortium and governance</span>
+      <h2 data-sq>Kush e drejton NCC Albania</h2><h2 data-en>Who runs NCC Albania</h2>
+      <div class="org">
+        <div class="org-card">
+          <div class="role" data-sq>Drejtues / Lider i WP3</div><div class="role" data-en>Lead / WP3 Lead</div>
+          <h3>AKSHI</h3>
+          <p data-sq>Agjencia Kombëtare e Shoqërisë së Informacionit, përfituesi kryesor dhe drejtuesi kombëtar i NCC Albania, përgjegjës për menaxhimin, koordinimin dhe qeverisjen e qendrës.</p>
+          <p data-en>National Agency for Information Society, the lead beneficiary and national coordinator of NCC Albania, responsible for the centre's management, coordination and governance.</p>
+        </div>
+        <div class="org-card">
+          <div class="role" data-sq>Entitet i afiliuar / Partner akademik</div><div class="role" data-en>Affiliated entity / Academic partner</div>
+          <h3 data-sq>Universiteti i Tiranës</h3><h3 data-en>University of Tirana</h3>
+          <p data-sq>Partneri akademik i NCC Albania, që kontribuon në analizën e nevojave, trajnimet dhe ekspertizën teknike, duke lidhur kërkimin me industrinë dhe sektorin publik.</p>
+          <p data-en>The academic partner of NCC Albania, contributing to user needs analysis, training and technical expertise, connecting research with industry and the public sector.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow" data-sq>Shërbimet tona</span><span class="eyebrow" data-en>Our services</span>
+      <h2 data-sq>Shërbime në tri nivele</h2><h2 data-en>Services on three levels</h2>
+      <p class="lead" data-sq>Gjashtë kategori shërbimesh, të përafruara me kategoritë e HPC Service Hub dhe të përshtatura sipas nevojave tuaja, në tri nivele angazhimi.</p>
+      <p class="lead" data-en>Six service categories, aligned with the HPC Service Hub categories and tailored to your needs, across three levels of engagement.</p>
+      <div class="level-tabs">
+        <span class="level-badge lvl1" data-sq>Niveli 1: Ndërgjegjësim dhe orientim</span><span class="level-badge lvl1" data-en>Level 1: Awareness and guidance</span>
+        <span class="level-badge lvl2" data-sq>Niveli 2: Ekspertizë e thelluar</span><span class="level-badge lvl2" data-en>Level 2: Expert support</span>
+        <span class="level-badge lvl3" data-sq>Niveli 3: Proof of Concept (PoC)</span><span class="level-badge lvl3" data-en>Level 3: Proof of Concept (PoC)</span>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9l-4 4V6a2 2 0 0 1 2-2z"/><path d="M8 9h8M8 12h5"/></svg></div>
+        <h3 data-sq>Konsulencë dhe ekspertizë</h3><h3 data-en>Consultancy and expertise</h3>
+        <p data-sq>Konsultime fillestare dhe të vazhdueshme, vlerësim i gatishmërisë HPC/HPDA/AI, matchmaking dhe këshillim për transformimin dixhital.</p><p data-en>Initial and follow-up consultations, HPC/HPDA/AI readiness assessment, matchmaking and digital transformation advice.</p>
+        <span class="tag t12" data-sq>Niveli 1 dhe 2</span><span class="tag t12" data-en>Level 1 and 2</span>
+      </div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1l2.1-2.1M17 7l2.1-2.1"/></svg></div>
+        <h3 data-sq>Mbështetje për aplikacionet</h3><h3 data-en>Application support</h3>
+        <p data-sq>Paralelizim, optimizim dhe porting i kodit, optimizim i performancës dhe mbështetje për aplikimet për fonde (FFplus, EuroHPC).</p><p data-en>Parallelization, optimization and porting of code, performance optimization and support for funding applications (FFplus, EuroHPC).</p>
+        <span class="tag t2" data-sq>Niveli 2</span><span class="tag t2" data-en>Level 2</span>
+      </div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01M11 7.5h6M11 16.5h6"/></svg></div>
+        <h3 data-sq>Akses në infrastrukturë</h3><h3 data-en>Infrastructure and access</h3>
+        <p data-sq>Akses, deployment dhe testim në sisteme HPC, si dhe orientim për akses në superkompjuterat dhe burimet europiane EuroHPC.</p><p data-en>Access, deployment and testing on HPC systems, plus guidance for access to European EuroHPC supercomputers and resources.</p>
+        <span class="tag t12" data-sq>Niveli 1 dhe 2</span><span class="tag t12" data-en>Level 1 and 2</span>
+      </div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 2 9l10 5 10-5-10-5z"/><path d="M6 11v4c0 1.3 2.7 3 6 3s6-1.7 6-3v-4"/><path d="M22 9v5"/></svg></div>
+        <h3 data-sq>Trajnime dhe aftësim</h3><h3 data-en>Training and skills</h3>
+        <p data-sq>Kurse hyrëse dhe të avancuara, trajnime të personalizuara sipas sektorit, webinare dhe shkolla verore në HPC, HPDA dhe AI.</p><p data-en>Introductory and advanced courses, sector-tailored training, webinars and summer schools in HPC, HPDA and AI.</p>
+        <span class="tag t12" data-sq>Niveli 1 dhe 2</span><span class="tag t12" data-en>Level 1 and 2</span>
+      </div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+        <h3 data-sq>Aplikacione dhe zgjidhje</h3><h3 data-en>Applications and solutions</h3>
+        <p data-sq>Zhvillim zgjidhjesh softuerike, integrim i workflow-eve AI/HPDA në procese ekzistuese dhe paketa shërbimesh të kombinuara HPC/HPDA/AI.</p><p data-en>Software solution development, integration of AI/HPDA workflows into existing processes and combined HPC/HPDA/AI service bundles.</p>
+        <span class="tag t2" data-sq>Niveli 2</span><span class="tag t2" data-en>Level 2</span>
+      </div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-5 8.5A2 2 0 0 0 6.8 21h10.4a2 2 0 0 0 1.8-3.5L14 9V3"/><path d="M7.5 15h9"/></svg></div>
+        <h3 data-sq>Proof of Concept (PoC)</h3><h3 data-en>Proof of Concept (PoC)</h3>
+        <p data-sq>Zhvillim i plotë i Proof-of-Concept (konsulencë, implementim dhe validim), Proof of Value dhe eksplorim të dhënash për të provuar vlerën para shkallëzimit.</p><p data-en>Full Proof-of-Concept development (consulting, implementation and validation), Proof of Value and data exploration to prove value before scaling.</p>
+        <span class="tag t3" data-sq>Niveli 3</span><span class="tag t3" data-en>Level 3</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TARGET GROUPS ============ -->
+<section id="audience">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow" data-sq>Target Grupe</span><span class="eyebrow" data-en>Target Groups</span>
+      <h2 data-sq>Grupet tona të synuara</h2><h2 data-en>Our target groups</h2>
+      <p class="lead" data-sq>Mbështesim një ekosistem të tërë kombëtar për të përqafuar teknologjitë e llogaritjes së avancuar.</p>
+      <p class="lead" data-en>We support an entire national ecosystem to adopt advanced computing technologies.</p>
+    </div>
+    <div class="aud" style="margin-top:40px">
+      <div class="aud-item"><div class="aud-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V11l6 3V11l6 3V8l3 1.5V21z"/><path d="M3 21h18"/><path d="M7 17h.01M12 17h.01M16 17h.01"/></svg></div><h4 data-sq>NVM dhe Industri</h4><h4 data-en>SMEs and Industry</h4><p data-sq>Rritje e produktivitetit dhe konkurrueshmërisë përmes HPC dhe AI.</p><p data-en>Boosting productivity and competitiveness through HPC and AI.</p></div>
+      <div class="aud-item"><div class="aud-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2.8 1.6 4.5 4.4 4.5 7.7 0 2-.8 3.9-1.8 5.3H9.3c-1-1.4-1.8-3.3-1.8-5.3C7.5 7.4 9.2 4.6 12 3z"/><circle cx="12" cy="9.5" r="1.6"/><path d="M9.3 16 7 20l3-1M14.7 16 17 20l-3-1"/></svg></div><h4 data-sq>Startup-e</h4><h4 data-en>Start-ups</h4><p data-sq>Akses i shpejtë në fuqi llogaritëse për inovacion dhe produkte të reja.</p><p data-en>Fast access to computing power for innovation and new products.</p></div>
+      <div class="aud-item"><div class="aud-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6c-2.4-1.6-5.6-1.6-8 0v13c2.4-1.6 5.6-1.6 8 0 2.4-1.6 5.6-1.6 8 0V6c-2.4-1.6-5.6-1.6-8 0z"/><path d="M12 6v13"/></svg></div><h4 data-sq>Akademia dhe Kërkimi</h4><h4 data-en>Academia and Research</h4><p data-sq>Mbështetje kërkimore, trajnime dhe transferim teknologjik.</p><p data-en>Research support, training and technology transfer.</p></div>
+      <div class="aud-item"><div class="aud-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 12 4l9 6"/><path d="M5 10v8M9 10v8M15 10v8M19 10v8"/><path d="M3 21h18"/></svg></div><h4 data-sq>Institucione publike</h4><h4 data-en>Public institutions</h4><p data-sq>Transformim dixhital dhe shërbime publike të fuqizuara nga AI.</p><p data-en>Digital transformation and AI-powered public services.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section id="how">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow" data-sq>Si funksionon</span><span class="eyebrow" data-en>How it works</span>
+      <h2 data-sq>Nga ideja te superkompjuteri, në 4 hapa</h2><h2 data-en>From idea to supercomputer, in 4 steps</h2>
+      <p class="lead" data-sq>NCC Albania është pika juaj e vetme e kontaktit për të përfituar nga fuqia llogaritëse e superkompjuterave europianë. Pavarësisht nëse jeni një NVM, startup, kërkues apo institucion publik, ju shoqërojmë hap pas hapi, pa asnjë kosto, nga ideja e parë deri te zbatimi në infrastrukturën EuroHPC.</p>
+      <p class="lead" data-en>NCC Albania is your single point of contact to benefit from the computing power of European supercomputers. Whether you are an SME, start-up, researcher or public institution, we guide you step by step, at no cost, from the first idea to deployment on EuroHPC infrastructure.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h4 data-sq>Na kontaktoni</h4><h4 data-en>Get in touch</h4>
+        <p data-sq>Na shkruani ose plotësoni formularin dhe na tregoni sfidën, projektin ose idenë tuaj. Konsultimi fillestar është plotësisht falas dhe pa asnjë detyrim. Ju ndihmojmë të kuptoni nëse HPC, analiza e të dhënave ose AI mund t'i japin vlerë punës suaj.</p>
+        <p data-en>Write to us or fill in the form and tell us about your challenge, project or idea. The first consultation is completely free and with no obligation. We help you understand whether HPC, data analytics or AI can add value to your work.</p></div>
+      <div class="step"><div class="n">2</div><h4 data-sq>Analizë nevojash</h4><h4 data-en>Needs analysis</h4>
+        <p data-sq>Ekspertët tanë vlerësojnë së bashku me ju rastin konkret të përdorimit, kërkesat teknike dhe rezultatet që dëshironi të arrini. Përcaktojmë nivelin e shërbimit që ju përshtatet, nga ndërgjegjësimi bazë (Niveli 1) te mbështetja e specializuar teknike (Niveli 2).</p>
+        <p data-en>Our experts assess your specific use case, technical requirements and the results you want to achieve. We define the service level that fits you, from basic awareness (Level 1) to specialised technical support (Level 2).</p></div>
+      <div class="step"><div class="n">3</div><h4 data-sq>Mbështetje dhe trajnim</h4><h4 data-en>Support and training</h4>
+        <p data-sq>Ofrojmë konsulencë teknike, trajnime të personalizuara, optimizim dhe paralelizim kodi, si dhe zhvillim të Proof-of-Concept për të provuar vlerën e zgjidhjes suaj. Ju përgatisim gjithashtu për të aplikuar për akses në sistemet europiane EuroHPC.</p>
+        <p data-en>We provide technical consulting, tailored training, code optimization and parallelization, as well as Proof-of-Concept development to prove the value of your solution. We also prepare you to apply for access to the European EuroHPC systems.</p></div>
+      <div class="step"><div class="n">4</div><h4 data-sq>Akses dhe shkallëzim</h4><h4 data-en>Access and scale</h4>
+        <p data-sq>Ju lidhim me superkompjuterat dhe burimet e rrjetit EuroHPC për të shkallëzuar zgjidhjen tuaj nga prototipi te prodhimi. Mbetemi pranë jush edhe pas aksesit, duke ju referuar sipas nevojës te qendrat europiane të ekselencës dhe AI Factories.</p>
+        <p data-en>We connect you to the supercomputers and resources of the EuroHPC network to scale your solution from prototype to production. We stay by your side even after access, referring you as needed to European centres of excellence and AI Factories.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow" data-sq>Kontakt</span><span class="eyebrow" data-en>Contact</span>
+      <h2 data-sq>Le të nisim bashkëpunimin</h2><h2 data-en>Let's start working together</h2>
+      <p class="lead" data-sq>Keni një ide, projekt ose pyetje? Ekipi ynë është këtu për t'ju ndihmuar.</p>
+      <p class="lead" data-en>Have an idea, project or question? Our team is here to help.</p>
+    </div>
+    <div class="contact-grid" style="margin-top:44px">
+      <div class="contact-info">
+        <div class="row"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><b>Email</b><br><a href="mailto:info@hpc.al">info@hpc.al</a></div></div>
+        <div class="row"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg></span><div><b data-sq>Drejtues</b><b data-en>Led by</b><br><span style="color:var(--muted)">AKSHI</span></div></div>
+        <div class="row"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><b data-sq>Adresa</b><b data-en>Address</b><br><span style="color:var(--muted)">Rruga Papa Gjon Pali II 3, Tiranë 1010, Albania</span></div></div>
+        <div class="row"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.8 2.7 2.8 15.3 0 18M12 3c-2.8 2.7-2.8 15.3 0 18"/></svg></span><div><b data-sq>Rrjeti</b><b data-en>Network</b><br><a href="https://hpc-portal.eu" target="_blank" rel="noopener">HPC in Europe Portal</a></div></div>
+        <div style="margin-top:20px" class="social">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.2 8.65 21 10.9 21 14v7h-4v-6.2c0-1.48-.03-3.38-2.06-3.38-2.06 0-2.38 1.6-2.38 3.27V21H9z"/></svg></a>
+          <a href="#" aria-label="Bluesky"><svg viewBox="0 0 600 530" fill="currentColor"><path d="M135 44c66 50 137 150 163 204 26-54 97-154 163-204 48-36 126-64 126 25 0 18-10 149-16 170-21 73-95 92-161 81 115 20 144 84 81 148-120 122-172-30-185-69-2-7-4-10-4-8 0-2-2 1-4 8-13 39-65 191-185 69-63-64-34-128 81-148-66 11-140-8-161-81-6-21-16-152-16-170 0-89 78-61 126-25z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+        </div>
+      </div>
+      <form onsubmit="return sendForm(event)">
+        <label data-sq for="n">Emri</label><label data-en for="n">Name</label>
+        <input id="n" required placeholder="...">
+        <label data-sq for="e">Email</label><label data-en for="e">Email</label>
+        <input id="e" type="email" required placeholder="...">
+        <label data-sq for="m">Mesazhi</label><label data-en for="m">Message</label>
+        <textarea id="m" rows="4" required placeholder="..."></textarea>
+        <button class="btn btn-navy" type="submit" style="width:100%;justify-content:center">
+          <span data-sq>Dërgo mesazhin</span><span data-en>Send message</span>
+        </button>
+        <p class="form-note" data-sq>Duke dërguar këtë formular, të dhënat tuaja mblidhen dhe përpunohen në përputhje me GDPR dhe me Ligjin nr. 124/2024 të Republikës së Shqipërisë. Ju mund të na kontaktoni në çdo kohë në <a href="mailto:info@hpc.al">info@hpc.al</a> për të kërkuar fshirjen e të dhënave tuaja ose që ato të mos përdoren për qëllimet e projektit.</p>
+        <p class="form-note" data-en>By submitting this form, your data is collected and processed in accordance with the GDPR and with Law no. 124/2024 of the Republic of Albania. You may contact us at any time at <a href="mailto:info@hpc.al">info@hpc.al</a> to request the deletion of your data or that it not be used for the project's purposes.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container foot-top">
+    <div class="foot-brand">
+      <img src="assets/hpc-in-europe-white.png" alt="HPC in Europe">
+      <p data-sq>NCC Albania, Qendra Kombëtare e Kompetencës për High-Performance Computing, në kuadër të EuroCC 3 dhe EuroHPC Joint Undertaking.</p>
+      <p data-en>NCC Albania, National Competence Centre for High-Performance Computing, within EuroCC 3 and the EuroHPC Joint Undertaking.</p>
+    </div>
+    <div>
+      <h5 data-sq>Lidhje të shpejta</h5><h5 data-en>Quick links</h5>
+      <ul>
+        <li><a href="#about" data-sq>Rreth nesh</a><a href="#about" data-en>About</a></li>
+        <li><a href="#services" data-sq>Shërbimet</a><a href="#services" data-en>Services</a></li>
+        <li><a href="#audience" data-sq>Target Grupe</a><a href="#audience" data-en>Target Groups</a></li>
+        <li><a href="#contact" data-sq>Kontakt</a><a href="#contact" data-en>Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 data-sq>Rrjeti EuroHPC</h5><h5 data-en>EuroHPC network</h5>
+      <ul>
+        <li><a href="https://hpc-portal.eu" target="_blank" rel="noopener">HPC in Europe Portal</a></li>
+        <li><a href="https://www.eurohpc-ju.europa.eu" target="_blank" rel="noopener">EuroHPC Joint Undertaking</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <img class="eu" src="assets/eu-cofunded.jpg" alt="Co-funded by the European Union">
+    <img src="assets/eurohpc-ju.png" alt="EuroHPC JU" style="background:#fff;padding:4px 8px;border-radius:6px;height:46px">
+    <p>EuroCC 3 has received funding from the European High-Performance Computing Joint Undertaking (JU) under Grant Agreement No. 101306701. The JU receives support from the European Union's Digital Europe Programme and Germany, Albania, Austria, Belgium, Bosnia and Herzegovina, Bulgaria, Croatia, Cyprus, Czechia, Denmark, Estonia, Finland, France, Greece, Hungary, Iceland, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, Montenegro, the Netherlands, North Macedonia, Norway, Poland, Portugal, Romania, Serbia, Slovakia, Slovenia, Spain, Sweden, Türkiye, and Kosovo. Funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the EuroHPC Joint Undertaking. Neither the European Union nor the EuroHPC Joint Undertaking can be held responsible for them.</p>
+  </div>
+  <div class="copyright">
+    © 2026 NCC Albania. <span data-sq>Të gjitha të drejtat e rezervuara.</span><span data-en>All rights reserved.</span>
+    <a href="privacy.html" target="_blank" rel="noopener"><span data-sq>Politika e Privatësisë</span><span data-en>Privacy Policy</span></a>
+  </div>
+</footer>
+
+<script>
+const setLang = (l)=>{
+  document.documentElement.lang = l;
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active', b.dataset.lang===l));
+  document.querySelectorAll('[data-sq]').forEach(el=>el.style.display = (l==='sq'?'':'none'));
+  document.querySelectorAll('[data-en]').forEach(el=>el.style.display = (l==='en'?'':'none'));
+  try{localStorage.setItem('ncc-lang',l);}catch(e){}
+};
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+let saved='sq'; try{saved=localStorage.getItem('ncc-lang')||'sq';}catch(e){}
+setLang(saved);
+
+const burger=document.getElementById('burger'), menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+
+function sendForm(e){
+  e.preventDefault();
+  const lang=document.documentElement.lang;
+  alert(lang==='en'
+    ? 'Thank you! Your message has been recorded. Your data is processed in line with the GDPR and Law no. 124/2024.'
+    : 'Faleminderit! Mesazhi juaj u regjistrua. Të dhënat tuaja përpunohen në përputhje me GDPR dhe Ligjin nr. 124/2024.');
+  e.target.reset();
+  return false;
+}
+</script>
+</body>
+</html>
